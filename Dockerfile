@@ -12,7 +12,7 @@ RUN set -ex \
     && cd /build \
     && go build -ldflags "-s -w -extldflags '-static'" -o cqhttp
 
-FROM alpine:latest
+FROM alpine:3.18.3
 
 COPY --from=builder /build/cqhttp /usr/bin/cqhttp
 RUN chmod +x /usr/bin/cqhttp
